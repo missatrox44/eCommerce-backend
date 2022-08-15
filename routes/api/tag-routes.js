@@ -40,41 +40,9 @@ router.post('/', async(req, res) => {
   }
 });
 
-//FIX ROUTE!
+
 // update a tag's name by its `id` value
 router.put('/:id', (req, res) => {
-  // {
-	// 	"id": "9",
-	// 	"tag_name": "80s",
-	// 	"products": [
-	// 		{
-	// 			"id": 1,
-	// 			"product_name": "Plain T-Shirt",
-	// 			"price": 15,
-	// 			"stock": 14,
-	// 			"category_id": 1,
-	// 			"product_tag": {
-	// 				"id": 3,
-	// 				"product_id": 1,
-	// 				"tag_id": 8
-	// 			}
-	// 		},
-	// 		{
-	// 			"id": 4,
-	// 			"product_name": "Top 40 Music Compilation Vinyl Record",
-	// 			"price": 13,
-	// 			"stock": 50,
-	// 			"category_id": 3,
-	// 			"product_tag": {
-	// 				"id": 11,
-	// 				"product_id": 4,
-	// 				"tag_id": 8
-	// 			}
-	// 		}]
-	// 		}
-	// 		}
-
-
   Tag.update(req.body, {
     where: { id: req.params.id }
   })
@@ -86,9 +54,8 @@ router.put('/:id', (req, res) => {
 });
 
 //FIX ROUTE!
-// delete on tag by its `id` value
 router.delete('/:id', (req, res) => {
-  Tag.destroy(req.body, {
+  Tag.destroy({
     where: { id: req.params.id }
   })
     .then(tagData => {

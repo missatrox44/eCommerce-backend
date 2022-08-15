@@ -107,11 +107,9 @@ router.put('/:id', (req, res) => {
     });
 });
 
-
-//FIX ROUTE!
-router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
-  Product.destroy(req.body, {
+router.delete('/:id', (req, res) => {
+  Product.destroy({
     where: { id: req.params.id }
   })
     .then(catData => {
